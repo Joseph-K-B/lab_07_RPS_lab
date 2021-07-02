@@ -19,8 +19,8 @@ let draws = 0;
 playBtn.addEventListener('click', ()=>{
     console.log('clicked');
     const pic = document.querySelector('input[type=radio]:checked');
+    console.log(pic);
     const userChoice = pic.value;
-
     let computerChoice = 'rock';
     let randomChoice = Math.ceil(Math.random() * 3);
     if (randomChoice === 1) {

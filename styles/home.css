@@ -1,1 +1,12 @@
 /* add home page styles here */
+input[type=radio]{
+    display: none;
+} 
+input[type=radio]:checked + img {
+    border: 5px solid black;
+
+}
+input[type=radio]:not(:checked) + img:hover{
+    opacity: 70%;
+    cursor: crosshair;
+}
