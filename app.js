@@ -6,3 +6,42 @@
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state
+import { userWin } from "./utils.js";
+
+const playBtn = document.getElementById('play-game');
+const winSpan = document.getElementById('total-wins');
+const lossSpan = document.getElementById('total-losses');
+console.log(playBtn);
+let wins = 0;
+let losses = 0;
+
+playBtn.addEventListener('click', ()=>{
+    console.log('clicked');
+    const pic = document.querySelector('input[type=radio]:checked');
+    const userChoice = pic.value;
+
+    let computerChoice = 'rock';
+    let randomChoice = Math.ceil(Math.random() * 3);
+    if (randomChoice === 1) {
+        computerChoice = 'rock';
+    }
+    else if (randomChoice === 2) {
+        computerChoice = 'scissors';
+    }
+    else if (randomChoice === 3) {
+        computerChoice = 'paper';
+    }
+    console.log(computerChoice);
+    
+    const isWinner = userWin(userChoice, computerChoice);
+
+    if (isWinner === 'win') {
+        wins++;
+    }
+    else if (isWinner === 'lose') {
+        losses++;
+    }
+    winSpan.textContent = wins;
+    lossSpan.textContent = losses;
+});
+
